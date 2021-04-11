@@ -17,5 +17,6 @@
     <color name="colorShowcaseBaseItemShortDesc">#868d94</color>
     <color name="colorShowcaseBaseItemSeparator">#f6f5f6</color>
     <color name="colorShowcaseBaseItemShowMore">#e83d4e</color>
+    <color name="colorShowcaseBottomBarAdd">#161927</color>
 
 </resources>

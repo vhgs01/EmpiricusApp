@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorActivityProductShowcase">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:translationZ="@dimen/showcaseDefaultTranslationZ">
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            android:translationZ="@dimen/showcaseDefaultTranslationZ"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvShowcase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
+            android:paddingBottom="@dimen/showcaseRecyclerViewPaddingBottom"
+            android:translationZ="@dimen/showcaseDefaultTranslationZ"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:listitem="@layout/base_showcase_item" />
 
-    </RelativeLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvShowcase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/showcaseNavigationPadding"
+            android:translationZ="@dimen/shocaseNavigationTranslationZ"
+            app:itemIconTint="@drawable/bottom_nav_color"
+            app:itemTextColor="@drawable/bottom_nav_color"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvShowcase"
+            app:menu="@menu/bottom_menu">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabShowcase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorShowcaseBottomBarAdd"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_white_add"
+                android:tint="@color/white"
+                android:translationZ="@dimen/shocaseFabTranslationZ"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/bnvShowcase"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

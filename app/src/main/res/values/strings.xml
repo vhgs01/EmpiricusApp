@@ -6,5 +6,10 @@
 
     <!--    ShowcaseScreen    -->
     <string name="showcaseBaseItemShowMoreText">Veja mais</string>
+    <string name="menuMyPainel">Meu painel</string>
+    <string name="menuSubscriptions">Assinaturas</string>
+    <string name="menuAdd" />
+    <string name="menuOffers">Ofertas</string>
+    <string name="menuMoreOptions">Mais opções</string>
 
 </resources>

@@ -1,7 +1,8 @@
 package br.com.empiricusapp.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.empiricusapp.R
 import br.com.empiricusapp.contract.ProductShowcaseContract
@@ -16,6 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,11 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
             val result = callApi()
             configureAdapter(result)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bottom_menu, menu)
+        return true
     }
 
     override suspend fun callApi(): ShowCase {
@@ -45,4 +52,5 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
             recyclerView.layoutManager = LinearLayoutManager(this)
         }
     }
+
 }

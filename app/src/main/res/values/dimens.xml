@@ -4,6 +4,9 @@
     <!--    Toolbar    -->
     <dimen name="toolbatTitleTextSize">18sp</dimen>
 
+    <!-- Overriding sizes of the FAB -->
+    <dimen name="design_fab_size_normal">64dp</dimen>
+
     <!--    ShowcaseScreen    -->
     <dimen name="showcaseBaseItemAuthor">100dp</dimen>
     <dimen name="showcaseBaseItemMarginDefault">20dp</dimen>
@@ -19,5 +22,10 @@
     <dimen name="showcaseBaseItemSeparatorHeight">1dp</dimen>
     <dimen name="showcaseBaseItemShowMoreMargin">15dp</dimen>
     <dimen name="showcaseBaseItemShowMorePadding">20dp</dimen>
+    <dimen name="showcaseNavigationPadding">5dp</dimen>
+    <dimen name="showcaseDefaultTranslationZ">1dp</dimen>
+    <dimen name="showcaseRecyclerViewPaddingBottom">30dp</dimen>
+    <dimen name="shocaseNavigationTranslationZ">10dp</dimen>
+    <dimen name="shocaseFabTranslationZ">999dp</dimen>
 
 </resources>
