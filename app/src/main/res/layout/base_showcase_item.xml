@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/showcaseBaseItemMarginDefault"
+    android:layout_marginTop="@dimen/showcaseBaseItemMarginDefault"
+    android:layout_marginEnd="@dimen/showcaseBaseItemMarginDefault"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/showcaseBaseItemCardElevation"
+        app:cardCornerRadius="@dimen/showcaseBaseItemCornerRadius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivShowcaseAuthor"
+                    android:layout_width="@dimen/showcaseBaseItemAuthor"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/empiricus" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvIdentifierName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/showcaseBaseItemIdentifierNameMarginStart"
+                        android:layout_marginTop="@dimen/showcaseBaseItemIdentifierNameMarginTop"
+                        android:layout_marginEnd="@dimen/showcaseBaseItemIdentifierNameMarginEnd"
+                        android:maxLines="2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/showcaseBaseIdentifierNameTextSize"
+                        android:textStyle="bold"
+                        tools:text="Os Melhores Fundos de Investimento" />
+
+                    <TextView
+                        android:id="@+id/tvAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/showcaseBaseItemAuthorMargin"
+                        android:textColor="@color/colorShowcaseBaseItemAuthor"
+                        tools:text="Bruno Mérola" />
+
+                    <TextView
+                        android:id="@+id/tvShortDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/showcaseBaseItemShortDescMargin"
+                        android:maxLines="3"
+                        android:textColor="@color/colorShowcaseBaseItemShortDesc"
+                        tools:text="A melhor seleção de fundos de investimento, desde a renda fixa até a variável." />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/showcaseBaseItemSeparatorHeight"
+                android:background="@color/colorShowcaseBaseItemSeparator" />
+
+            <Button
+                android:id="@+id/btShowMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/showcaseBaseItemShowMoreMargin"
+                android:backgroundTint="@color/colorShowcaseBaseItemShowMore"
+                android:text="@string/showcaseBaseItemShowMoreText"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Toolbar    -->
+    <dimen name="toolbatTitleTextSize">18sp</dimen>
+
+    <!--    ShowcaseScreen    -->
+    <dimen name="showcaseBaseItemAuthor">100dp</dimen>
+    <dimen name="showcaseBaseItemMarginDefault">20dp</dimen>
+    <dimen name="showcaseBaseItemCardElevation">5dp</dimen>
+    <dimen name="showcaseBaseItemCornerRadius">5dp</dimen>
+    <dimen name="showcaseBaseItemIdentifierNameMarginStart">10dp</dimen>
+    <dimen name="showcaseBaseItemIdentifierNameMarginTop">20dp</dimen>
+    <dimen name="showcaseBaseItemIdentifierNameMarginEnd">10dp</dimen>
+    <dimen name="showcaseBaseIdentifierNameTextSize">20sp</dimen>
+    <dimen name="showcaseBaseItemAuthorMargin">10dp</dimen>
+    <dimen name="showcaseBaseItemShortDescMargin">10dp</dimen>
+    <dimen name="showcaseBaseItemSeparatorHeight">1dp</dimen>
+    <dimen name="showcaseBaseItemShowMoreMargin">15dp</dimen>
+
+</resources>

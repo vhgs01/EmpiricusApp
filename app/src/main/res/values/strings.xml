@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Empiricus App</string>
+
+    <!--    Toolbar    -->
+    <string name="toolbarTitleText">Ofertas</string>
+
+    <!--    ShowcaseScreen    -->
+    <string name="showcaseBaseItemShowMoreText">Veja mais</string>
+
 </resources>

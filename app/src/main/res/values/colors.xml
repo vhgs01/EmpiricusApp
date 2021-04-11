@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    Toolbar    -->
+    <color name="colorToolbarBackground">#283241</color>
+
+    <!--    ShowcaseScreen    -->
+    <color name="colorActivityProductShowcase">#f6f5f6</color>
+    <color name="colorShowcaseBaseItemAuthor">#868d94</color>
+    <color name="colorShowcaseBaseItemShortDesc">#868d94</color>
+    <color name="colorShowcaseBaseItemSeparator">#f6f5f6</color>
+    <color name="colorShowcaseBaseItemShowMore">#e83d4e</color>
+
 </resources>
