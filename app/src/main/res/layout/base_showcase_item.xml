@@ -29,8 +29,9 @@
                 <ImageView
                     android:id="@+id/ivShowcaseAuthor"
                     android:layout_width="@dimen/showcaseBaseItemAuthor"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/empiricus" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/empiricus"
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -64,6 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/showcaseBaseItemShortDescMargin"
+                        android:lineSpacingExtra="@dimen/showcaseBaseItemShortDescLineSpacingExtra"
                         android:maxLines="3"
                         android:textColor="@color/colorShowcaseBaseItemShortDesc"
                         tools:text="A melhor seleção de fundos de investimento, desde a renda fixa até a variável." />
@@ -82,7 +84,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/showcaseBaseItemShowMoreMargin"
                 android:backgroundTint="@color/colorShowcaseBaseItemShowMore"
+                android:padding="@dimen/showcaseBaseItemShowMorePadding"
                 android:text="@string/showcaseBaseItemShowMoreText"
+                android:textAllCaps="false"
                 android:textColor="@color/white" />
 
         </LinearLayout>
