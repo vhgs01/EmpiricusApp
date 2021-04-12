@@ -11,5 +11,6 @@
     <string name="menuAdd" />
     <string name="menuOffers">Ofertas</string>
     <string name="menuMoreOptions">Mais opções</string>
+    <string name="showcaseToolbarSearch">Pesquisar</string>
 
 </resources>

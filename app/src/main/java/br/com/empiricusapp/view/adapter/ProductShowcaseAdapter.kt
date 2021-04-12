@@ -8,11 +8,14 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.empiricusapp.R
 import br.com.empiricusapp.model.Group
-import br.com.empiricusapp.model.ShowCase
+import br.com.empiricusapp.model.Showcase
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.base_showcase_item.view.*
 
-class ProductShowcaseAdapter(private val showcases: ShowCase, private val context: Context) :
+class ProductShowcaseAdapter(
+    private var showcases: MutableList<Showcase>,
+    private val context: Context
+) :
     RecyclerView.Adapter<ProductShowcaseAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,11 +31,11 @@ class ProductShowcaseAdapter(private val showcases: ShowCase, private val contex
     }
 
     override fun getItemCount(): Int {
-        return showcases.groups.size
+        return showcases.first().groups.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val showcase = showcases.groups[position]
+        val showcase = showcases.first().groups[position]
         configureShowcaseView(holder, showcase)
     }
 
@@ -53,5 +56,10 @@ class ProductShowcaseAdapter(private val showcases: ShowCase, private val contex
 
     private fun loadImage(url: String?, it: ImageView) {
         Glide.with(context).load(url).into(it)
+    }
+
+    fun updateAdapter(newShowcaseList: MutableList<Showcase>) {
+        showcases = newShowcaseList
+        notifyDataSetChanged()
     }
 }

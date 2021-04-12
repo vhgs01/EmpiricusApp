@@ -12,7 +12,7 @@
         android:translationZ="@dimen/showcaseDefaultTranslationZ">
 
         <include
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarShowcase"
             layout="@layout/toolbar"
             android:translationZ="@dimen/showcaseDefaultTranslationZ"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,12 +23,12 @@
             android:id="@+id/rvShowcase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@+id/toolbarShowcase"
             android:paddingBottom="@dimen/showcaseRecyclerViewPaddingBottom"
             android:translationZ="@dimen/showcaseDefaultTranslationZ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarShowcase"
             tools:listitem="@layout/base_showcase_item" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
