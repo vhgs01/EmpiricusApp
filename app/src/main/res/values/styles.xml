@@ -7,9 +7,11 @@
         <item name="fontFamily">@font/ttcommons_regular</item>
     </style>
 
-    <style name="SearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
-        <item name="searchIcon">@drawable/ic_search</item>
-        <item name="searchHintIcon">@null</item>
-        <item name="queryHint">Pesquise pelo nome</item>
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+        <!-- Icon Color -->
+        <item name="android:tint">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
     </style>
 </resources>

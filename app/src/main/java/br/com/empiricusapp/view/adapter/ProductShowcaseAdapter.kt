@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.empiricusapp.R
@@ -11,12 +13,15 @@ import br.com.empiricusapp.model.Group
 import br.com.empiricusapp.model.Showcase
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.base_showcase_item.view.*
+import java.util.*
 
 class ProductShowcaseAdapter(
     private var showcases: MutableList<Showcase>,
     private val context: Context
 ) :
-    RecyclerView.Adapter<ProductShowcaseAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ProductShowcaseAdapter.ViewHolder>(), Filterable {
+
+    val itemsFilter = showcases.toMutableList()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var showcaseImage = itemView.ivShowcaseAuthor!!
@@ -58,8 +63,37 @@ class ProductShowcaseAdapter(
         Glide.with(context).load(url).into(it)
     }
 
-    fun updateAdapter(newShowcaseList: MutableList<Showcase>) {
-        showcases = newShowcaseList
-        notifyDataSetChanged()
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(filter: CharSequence): FilterResults {
+                val filterString = filter.toString().toLowerCase(Locale.ROOT)
+                var filterList = mutableListOf<Showcase>()
+                val listOfGroups = mutableListOf<Group>()
+
+                if (filterString.isEmpty()) {
+                    filterList = itemsFilter
+                } else {
+                    itemsFilter.forEachIndexed { _, itemsFilter ->
+                        for (group in itemsFilter.groups) {
+                            if (group.name.toLowerCase(Locale.ROOT).contains(filterString)) {
+                                listOfGroups.add(group)
+                            }
+                        }
+                        filterList.add(0, Showcase(listOfGroups))
+                    }
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = filterList
+
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                showcases.clear()
+                showcases.addAll(results.values as Collection<Showcase>)
+                notifyDataSetChanged()
+            }
+        }
     }
 }
