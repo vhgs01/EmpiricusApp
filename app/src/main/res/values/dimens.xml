@@ -27,5 +27,9 @@
     <dimen name="showcaseRecyclerViewPaddingBottom">30dp</dimen>
     <dimen name="shocaseNavigationTranslationZ">10dp</dimen>
     <dimen name="shocaseFabTranslationZ">999dp</dimen>
+    <dimen name="showcaseBottomAppBarDefaultElevation">0dp</dimen>
+    <dimen name="showcaseBottomAppBarDefaultCradleMargin">0dp</dimen>
+    <dimen name="showcaseBottomAppBarDefaultCradleRoundedCornerRadius">0dp</dimen>
+    <dimen name="showcaseBottomNavigationViewMarginEnd">16dp</dimen>
 
 </resources>

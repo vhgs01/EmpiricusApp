@@ -12,6 +12,7 @@ import br.com.empiricusapp.domain.BASE_URL
 import br.com.empiricusapp.domain.ShowcaseAPI
 import br.com.empiricusapp.model.Showcase
 import br.com.empiricusapp.view.adapter.ProductShowcaseAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_product_showcase.*
 import kotlinx.android.synthetic.main.base_showcase_item.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -35,6 +36,9 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
             val result = callApi()
             configureAdapter(result)
         }
+
+        val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        navView.background = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

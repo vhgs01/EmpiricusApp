@@ -31,38 +31,52 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbarShowcase"
             tools:listitem="@layout/base_showcase_item" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvShowcase"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="@dimen/showcaseNavigationPadding"
-            android:translationZ="@dimen/shocaseNavigationTranslationZ"
-            app:itemIconTint="@drawable/bottom_nav_color"
-            app:itemTextColor="@drawable/bottom_nav_color"
-            app:labelVisibilityMode="labeled"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvShowcase"
-            app:menu="@menu/bottom_menu">
+            app:layout_constraintTop_toBottomOf="@id/rvShowcase">
+
+            <fragment
+                android:id="@+id/navHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@android:color/transparent"
+                app:elevation="@dimen/showcaseBottomAppBarDefaultElevation"
+                app:fabCradleMargin="@dimen/showcaseBottomAppBarDefaultCradleMargin"
+                app:fabCradleRoundedCornerRadius="@dimen/showcaseBottomAppBarDefaultCradleRoundedCornerRadius">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/showcaseBottomNavigationViewMarginEnd"
+                    android:background="@android:color/transparent"
+                    app:itemIconTint="@drawable/bottom_nav_color"
+                    app:itemTextColor="@drawable/bottom_nav_color"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/bottom_menu" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabShowcase"
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:backgroundTint="@color/colorShowcaseBottomBarAdd"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/ic_white_add"
-                android:tint="@color/white"
-                android:translationZ="@dimen/shocaseFabTranslationZ"
-                app:fabSize="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/bnvShowcase"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
+                android:src="@drawable/ic_add"
+                app:layout_anchor="@id/bottomAppBar"
+                app:tint="@null" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
