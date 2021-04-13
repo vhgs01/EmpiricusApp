@@ -30,22 +30,10 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
         setContentView(R.layout.activity_product_showcase)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val result = callApi()
-            configureAdapter(result)
+            configureAdapter(getShowcasesByAPI())
         }
 
-        val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        navView.background = null
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-            override fun onQueryTextChange(newText: String): Boolean {
-                adapter.filter.filter(newText)
-                return true
-            }
-        })
+        configureBottomNavigation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,7 +43,7 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
         return true
     }
 
-    override suspend fun callApi(): Showcase {
+    override suspend fun getShowcasesByAPI(): Showcase {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -67,8 +55,8 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
 
     override fun configureAdapter(showcase: Showcase) {
         val recyclerView = rvShowcase
-        runOnUiThread {
 
+        runOnUiThread {
             val tempList: MutableList<Showcase> = ArrayList()
             tempList.add(showcase)
 
@@ -77,6 +65,26 @@ class ProductShowcaseActivity : AppCompatActivity(), ProductShowcaseContract.Vie
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }
+    }
+
+    override fun configureBottomNavigation() {
+        val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        navView.background = null
+
+        setNavViewListener()
+    }
+
+    private fun setNavViewListener() {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                adapter.filter.filter(query)
+                return true
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+        })
     }
 
 }

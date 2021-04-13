@@ -44,31 +44,13 @@ class ProductShowcaseAdapter(
         configureShowcaseView(holder, showcase)
     }
 
-    private fun configureShowcaseView(it: ViewHolder, showcase: Group) {
-        it.showcaseIdentifierName.text = showcase.name
-        it.showcaseShortDescription.text = showcase.shortDescription
-        it.showcaseAuthor.text = getAllAuthors(showcase)
-        loadImage(showcase.backgroundSmall, it.showcaseImage)
-    }
-
-    private fun getAllAuthors(showcase: Group): String {
-        var authors = ""
-        for (author in showcase.authors) {
-            authors += author.name + " "
-        }
-        return authors
-    }
-
-    private fun loadImage(url: String?, it: ImageView) {
-        Glide.with(context).load(url).into(it)
-    }
-
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(filter: CharSequence): FilterResults {
                 val filterString = filter.toString().toLowerCase(Locale.ROOT)
                 var filterList = mutableListOf<Showcase>()
                 val listOfGroups = mutableListOf<Group>()
+                val filterResults = FilterResults()
 
                 if (filterString.isEmpty()) {
                     filterList = itemsFilter
@@ -83,17 +65,39 @@ class ProductShowcaseAdapter(
                     }
                 }
 
-                val filterResults = FilterResults()
                 filterResults.values = filterList
-
                 return filterResults
             }
 
             override fun publishResults(constraint: CharSequence, results: FilterResults) {
                 showcases.clear()
                 showcases.addAll(results.values as Collection<Showcase>)
+
                 notifyDataSetChanged()
             }
         }
     }
+
+    private fun configureShowcaseView(it: ViewHolder, showcase: Group) {
+        it.showcaseIdentifierName.text = showcase.name
+        it.showcaseShortDescription.text = showcase.shortDescription
+        it.showcaseAuthor.text = getAllAuthors(showcase)
+
+        loadImage(showcase.backgroundSmall, it.showcaseImage)
+    }
+
+    private fun getAllAuthors(showcase: Group): String {
+        var authors = ""
+
+        for (author in showcase.authors) {
+            authors += author.name + " "
+        }
+
+        return authors
+    }
+
+    private fun loadImage(url: String?, it: ImageView) {
+        Glide.with(context).load(url).into(it)
+    }
+
 }

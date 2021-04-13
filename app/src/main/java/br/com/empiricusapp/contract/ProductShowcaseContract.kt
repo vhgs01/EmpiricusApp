@@ -4,11 +4,8 @@ import br.com.empiricusapp.model.Showcase
 
 interface ProductShowcaseContract {
     interface View {
-        suspend fun callApi(): Showcase
+        suspend fun getShowcasesByAPI(): Showcase
         fun configureAdapter(showcase: Showcase)
-    }
-
-    interface Presenter {
-
+        fun configureBottomNavigation()
     }
 }
