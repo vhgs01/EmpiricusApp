@@ -31,5 +31,6 @@
     <dimen name="showcaseBottomAppBarDefaultCradleMargin">0dp</dimen>
     <dimen name="showcaseBottomAppBarDefaultCradleRoundedCornerRadius">0dp</dimen>
     <dimen name="showcaseBottomNavigationViewMarginEnd">16dp</dimen>
+    <dimen name="showcaseScrollViewPaddingBottom">5dp</dimen>
 
 </resources>
